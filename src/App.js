@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+import videos from './utils/davids_vlogs'
 
 function App() {
+	const width = window.innerWidth < 200 ? 200 : window.innerWidth / 1.2
+	const height = window.innerHeight < 200 ? 200 : window.innerHeight / 1.2
+	const [videoIndex, setVideoIndex] = useState(Math.floor(Math.random() * (videos.length - 1)))
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+		<div className="app">
+			<button className="random-button" onClick={() => setVideoIndex(Math.floor(Math.random() * (videos.length - 1)))}>New Video</button>
+			<div className="video-player">
+				<iframe width={width} height={height} src={videos[videoIndex]}></iframe>
+			</div>
+		</div>
   );
 }
 
-export default App;
+export default App
