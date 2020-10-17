@@ -14,7 +14,7 @@ function App() {
 				<iframe title="video-player" width={width} height={height} src={videos[videoIndex]}></iframe>
 			</div>
 		</div>
-  );
+  )
 }
 
 export default App
